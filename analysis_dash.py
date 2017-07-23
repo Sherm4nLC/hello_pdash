@@ -12,6 +12,8 @@ import pandas as pd
 # import pymssql
 from datetime import datetime as dt
 import datetime as DT
+from flask import Flask
+
 
 # virtualenv -p /usr/bin/python2.7 env1
 # pip install dash==0.17.7
@@ -20,7 +22,8 @@ import datetime as DT
 # pip install dash-core-components==0.5.3
 # pip install plotly==2.0.12
 
-app = dash.Dash()
+server = Flask(__name__)
+app = dash.Dash(name='app1', sharing=True, server=server, csrf_protect=False)
 
 app.css.append_css({
     "external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"
